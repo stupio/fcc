@@ -8,18 +8,11 @@ function getConfig () {
     let CONFIG = require('../defaults.json');
     let env = process.env;
 
-    if (env.PORT) {
-        CONFIG.express.port = env.PORT;
-    }
-    if (env.DB_HOST) {
-        CONFIG.database.host = env.DB_HOST;
-    }
-    if (env.DB_PORT) {
-        CONFIG.database.port = env.DB_PORT;
-    }
-    if (env.SECRET) {
-        CONFIG.app.secret = env.SECRET;
-    }
+    // overwrite defaults with env
+    CONFIG.express.port = env.PORT || CONFIG.express.port;
+    CONFIG.database.host = env.DB_HOST || CONFIG.database.host;
+    CONFIG.database.port = env.DB_PORT || CONFIG.database.port;
+    CONFIG.app.secret = env.SECRET || CONFIG.app.secret;
 
     return CONFIG;
 }

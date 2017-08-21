@@ -9,5 +9,10 @@
     "http-errors": "^1.6.2",
     "jsonwebtoken": "^7.4.3",
     "mongoose": "^4.11.7"
+  },
+  "scripts": {
+    "import": "node scripts/import.js ",
+    "app": "node index.js",
+    "debug": "DEBUG=app* node index.js"
   }
 }
